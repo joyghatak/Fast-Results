@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>~Fast Results(Joy Ghatak 9332993088)~</title>
+  <style>
+    /* Global reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4 30%, #a18cd1 60%, #fbc2eb 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      border: 3px solid rgba(255, 255, 255, 0.9);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(90deg, #6366f1, #ec4899);
+      color: #f9fafb;
+      text-align: center;
+      padding: 20px 15px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* Main layout */
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+      background: linear-gradient(135deg, #fef3c7, #e0f2fe);
+    }
+
+    .panel {
+      flex: 1 1 320px;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 18px 18px 20px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .panel h2 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+      color: #1f2937;
+    }
+
+    .panel p.sub {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-bottom: 14px;
+    }
+
+    /* Form */
+    form .field {
+      margin-bottom: 12px;
+    }
+
+    form label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+      color: #111827;
+      font-weight: 600;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      padding: 8px 10px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+    }
+
+    form textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .btn-submit {
+      display: inline-block;
+      margin-top: 4px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(90deg, #10b981, #3b82f6);
+      color: #f9fafb;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+    }
+
+    .btn-submit:hover {
+      filter: brightness(1.08);
+    }
+
+    .btn-submit:active {
+      transform: translateY(1px);
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.6);
+    }
+
+    /* Result + ranking tables */
+    .result-table,
+    .ranking-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    .result-table th,
+    .result-table td,
+    .ranking-table th,
+    .ranking-table td {
+      padding: 8px 10px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .result-table th {
+      width: 35%;
+      background: #eef2ff;
+      color: #3730a3;
+      text-align: left;
+    }
+
+    .result-table td {
+      background: #f9fafb;
+    }
+
+    .result-title {
+      margin-top: 10px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .result-highlight {
+      color: #16a34a;
+      font-weight: 700;
+    }
+
+    .ranking-table thead {
+      background: linear-gradient(90deg, #22c55e, #06b6d4);
+      color: #f9fafb;
+    }
+
+    .ranking-table th {
+      text-align: left;
+    }
+
+    .ranking-table tbody tr:nth-child(odd) {
+      background: #ecfeff;
+    }
+
+    .ranking-table tbody tr:nth-child(even) {
+      background: #e0f2fe;
+    }
+
+    .ranking-table tbody tr:hover {
+      background: #fef3c7;
+    }
+
+    .placeholder-row td {
+      text-align: center;
+      color: #6b7280;
+      font-style: italic;
+    }
+
+    /* Footer */
+    footer {
+      background: #111827;
+      color: #e5e7eb;
+      text-align: center;
+      padding: 10px 15px;
+      font-size: 0.8rem;
+    }
+
+    footer span {
+      color: #fbbf24;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      main {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <h1>~Fast Results~</h1>
+      <p>Automated Exam Evaluator</p>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+      <!-- LEFT PANEL: FORM -->
+      <section class="panel">
+        <h2>Enter Student Answers</h2>
+        <p class="sub">Fill in the details below to evaluate (backend will process this data).</p>
+
+        <form id="exam-form">
+          <div class="field">
+            <label for="name">Student Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter student name" required />
+          </div>
+
+          <div class="field">
+            <label for="roll">Roll Number</label>
+            <input type="text" id="roll" name="roll" placeholder="Enter roll number" required />
+          </div>
+
+          <div class="field">
+            <label for="q1">Q1: Explain the difference between time complexity and space complexity. Why are they important in algorithm analysis?</label>
+            <textarea id="q1" name="q1" placeholder="Write answer here..." required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="q2">Q2: What is a binary search tree (BST)? Describe its properties and explain how insertion works.</label>
+            <textarea id="q2" name="q2" placeholder="Write answer here..." required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="q3">Q3: Define a stack and a queue. Compare their operations and give real-world examples where each is used.</label>
+            <textarea id="q3" name="q3" placeholder="Write answer here..." required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="q4">Q4: What is hashing? Explain how collisions occur and describe at least two collision-handling techniques.</label>
+            <textarea id="q4" name="q4" placeholder="Write answer here..." required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="q5">Q5: Explain the concept of dynamic programming. How is it different from divide-and-conquer?</label>
+            <textarea id="q5" name="q5" placeholder="Write answer here..." required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="q6">Q6: What is a graph? Describe the difference between BFS and DFS, and mention one application of each.</label>
+            <textarea id="q6" name="q6" placeholder="Write answer here..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Evaluate &amp; Save</button>
+        </form>
+      </section>
+
+      <!-- RIGHT PANEL: RESULT + RANKINGS -->
+      <section class="panel">
+        <h2>Evaluation &amp; Rankings</h2>
+        <p class="sub">These sections are filled dynamically from the backend.</p>
+
+        <!-- RESULT SECTION -->
+        <div>
+          <p class="result-title">Latest Evaluation Result</p>
+          <table class="result-table">
+            <tr>
+              <th>Name</th>
+              <td id="res-name">—</td>
+            </tr>
+            <tr>
+              <th>Roll</th>
+              <td id="res-roll">—</td>
+            </tr>
+            <tr>
+              <th>Q1 Marks</th>
+              <td id="res-q1">— / 5</td>
+            </tr>
+            <tr>
+              <th>Q2 Marks</th>
+              <td id="res-q2">— / 5</td>
+            </tr>
+            <tr>
+              <th>Q3 Marks</th>
+              <td id="res-q3">— / 5</td>
+            </tr>
+            <tr>
+              <th>Q4 Marks</th>
+              <td id="res-q4">— / 5</td>
+            </tr>
+            <tr>
+              <th>Q5 Marks</th>
+              <td id="res-q5">— / 5</td>
+            </tr>
+            <tr>
+              <th>Q6 Marks</th>
+              <td id="res-q6">— / 5</td>
+            </tr>
+            <tr>
+              <th>Total</th>
+              <td id="res-total" class="result-highlight">— / 30</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- RANKINGS SECTION -->
+        <div style="margin-top: 18px;">
+          <p class="result-title">Class Rankings</p>
+          <table class="ranking-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Roll</th>
+                <th>Q1</th>
+                <th>Q2</th>
+                <th>Q3</th>
+                <th>Q4</th>
+                <th>Q5</th>
+                <th>Q6</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="ranking-body">
+              <tr class="placeholder-row">
+                <td colspan="10">Loading rankings...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTERS -->
+    <footer>
+      Built by <span>Joy Ghatak</span> • Frontend: Single HTML file • Backend: Node.js + MongoDB Atlas
+    </footer>
+    <footer>
+      &copy; ∰2025 Joy Ghatak. All rights reserved.∰
+    </footer>
+  </div>
+
+  <!-- ✅ FRONTEND JS TALKING TO BACKEND -->
+  <script>
+    const API_BASE = "http://localhost:5500"; // Your Render Link 🔥
+
+    async function loadRankings() {
+      const rankingBody = document.getElementById("ranking-body");
+      rankingBody.innerHTML = "<tr><td colspan='10'>Loading...</td></tr>";
+
+      const res = await fetch(`${API_BASE}/api/rankings`);
+      const json = await res.json();
+
+      rankingBody.innerHTML = "";
+      json.data.forEach(r => {
+        rankingBody.innerHTML += `
+          <tr>
+            <td>${r.rank}</td><td>${r.name}</td><td>${r.roll}</td>
+            <td>${r.q1Marks}</td><td>${r.q2Marks}</td><td>${r.q3Marks}</td>
+            <td>${r.q4Marks}</td><td>${r.q5Marks}</td><td>${r.q6Marks}</td>
+            <td>${r.totalMarks}</td>
+          </tr>`;
+      });
+    }
+
+    async function submitForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      const res = await fetch(`${API_BASE}/api/evaluate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+      alert("Evaluation saved!");
+
+      const r = result.data;
+      document.getElementById("res-name").textContent = r.name;
+      document.getElementById("res-roll").textContent = r.roll;
+      document.getElementById("res-q1").textContent = r.q1Marks;
+      document.getElementById("res-q2").textContent = r.q2Marks;
+      document.getElementById("res-q3").textContent = r.q3Marks;
+      document.getElementById("res-q4").textContent = r.q4Marks;
+      document.getElementById("res-q5").textContent = r.q5Marks;
+      document.getElementById("res-q6").textContent = r.q6Marks;
+      document.getElementById("res-total").textContent = r.totalMarks;
+
+      form.reset();
+      loadRankings();
+    }
+
+    document.getElementById("exam-form").addEventListener("submit", submitForm);
+    loadRankings();
+  </script>
+
+</body>
+</html>
